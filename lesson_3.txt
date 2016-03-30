@@ -1,0 +1,19 @@
+Git and GitHub: Lesson 3 Notes
+
+1) What is GitHub?
+
+  -GitHub is a website that makes it easy for you to share entire Git
+  repositories with other people.
+  -This allows different people from all different parts of the world to work on
+  a project together.
+
+2) Syncing Repositories from Local to GitHub
+
+  -You computer will use a "remote," which is a place where files go before they
+  are sent to the GitHub repository that you've created.
+  -You can either 'push' (send files) or 'pull' (receive files) to/from the
+  GitHub repository.
+  -If a commit or repository already exists within the GitHub repository, GitHub
+  will not bother sending it because that would be inefficient.
+  -GitHub pushes and pulls files according to their branches. This allows GitHub
+  to trace commits by their parents.

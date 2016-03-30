@@ -1,0 +1,209 @@
+Git and GitHub: Lesson 1 Notes
+
+1) What is Git?
+
+	Git is a version control system.
+
+2) What is GitHub?
+
+	GitHub is a code sharing and collaboration platform.
+
+3) Comparing Two Files with a Mac
+
+	You could manually compare the differences between two files simply by
+	just looking at them.
+
+	However, macs have a “diff” function that finds the differences between
+	two files automatically, so you don’t have to waste hours doing it manually.
+
+	Go into the mac terminal and type: diff -u game_old.js game_new.js
+
+4) How did viewing a diff between two versions of a file help you see the
+bug that was introduced?
+
+	Using the diff function on the mac terminal saved me time by ONLY
+	displaying the parts of code that were DIFFERENT between the two
+	compared files.
+
+5) How could having easy access to the entire history of a file make you a
+more efficient programmer in the long term?
+
+	Having this easy access allows a programmer to deal with bugs more
+	efficiently. For example, if you have a program that is currently
+	working, but fails to work AFTER you've updated the code, you can
+	easily revert back to the most recent WORKING version of the file
+	to see what addition of code stopped the program from working.
+
+6) What is "version control"?
+
+	This refers to a system that allows the systematic versioning of any
+	content. This means that the system makes it easy to create, store,
+	and access different versions of the same file. Some examples include:
+	manual saving, Dropbox, Google Docs, Wikipedia, Git, SVN, CVS.
+
+7) What is a "commit" in Git?
+
+	A "commit" is a user-created checkpoint in Git. These are the building
+	blocks of Git.
+
+	A commit requires the user to supply a "commit message" each time that
+	a commit is created. This makes looking through old versions easier and
+	more pleasant, understanding what the most recent changes to that version
+	were.
+
+8) How often should I make a commit?
+
+	You should make a commit after every purposeful change to the code.
+	You don't want a commit to be too large or too small. You want to
+	make them easy to read and easy to understand the changes made from
+	previous versions.
+
+9) What do you think are the pros and cons of manually choosing when to
+create a commit, like you do in Git, vs having versions automatically saved,
+like Google Docs does?
+
+	Pros:
+	1) Each commit has a specific purpose, changing only one or a few things.
+	2) Viewing the history of a file will be easier due to smaller changes
+	   between each version.
+
+	Cons:
+	1) Because there is no regulated interval between each commit, one may
+	   forget to make a commit after a large change and lose all of their
+	   work.
+
+10) What is a "repository" in Git?
+
+	This is the collection of files that are saved or committed together, at
+	the same time because they may rely on one another. For example, a web
+	page equally relies on the HTML file, the CSS file, and the javaScript
+	file to function properly. Therefore, they should be committed together to
+	prevent always produce a most recent "bundle" or collection of necessary
+	files.
+
+11) Why do you think some version control systems, like Git, allow saving
+multiple files in one commit, while others, like Google Docs, treat each file
+separately?
+
+	Git allows saving multiple files in one commit because Git is used mainly
+	for programming files, which can rely heavily on one another to function
+	properly. Google Docs may treat each file separately because that program
+	deals mainly with text documents that can function independently.
+
+12) How can you use the commands Git log and Git diff to view the history of
+files?
+
+	You can use the 'Git log' command to display the full history of commits
+	of a specific file. Once you find the commit you're searching for, you can
+	extract the ID number of that commit (and of the commit previous to it)
+	and use the command 'Git diff' to display the specific changes made to the
+	the most recent commit.
+
+13) What is the "Git checkout" command?
+
+	This command allows the user to temporarily change the files back to how
+	they were at the time of a previous commit. This would prove useful when
+	a bug has been introduced to the most recent version and the user would
+	like to revert back to a working version of the program.
+
+14) How might using version control make you more confident to make changes
+that could break something?
+
+	Using version control could make you more confident to make changes that
+	could break something because it will always allow you to go back to a
+	working version that is bug-free! :)
+
+15) Now that you have your workspace set up, what do you want to try using
+Git for?
+
+	I would like to start using Git to work on projects that require version
+	control.
+
+16) Git Command Review:
+
+	A) "Git diff" : Compare two commits, printing each line that is present in
+		 one commit but not the other. (Two arguments: two commit IDs to compare)
+
+	B) "Git clone" : Makes a copy of an entire Git Repository, including the
+		 history, on to your computer. (One argument: url of repository to copy)
+
+	C) "Git checkout" : Temporarily reset all files in a repository to their
+		 state at a time of a specific commit. (One argument: the commit ID to
+		 restore)
+
+	D) "Git log" : Show the commits made in a repository, starting with the
+		 most recent. (Takes no arguments)
+
+17) TRUE or FALSE: "If someone else gives you the location of their directory
+or repository, you can copy or clone it to your own computer."
+
+	ANSWER: TRUE for BOTH "copying" and "cloning." The "Git clone" command
+	allows you to copy a repository to your computer, taking the url as the
+	argument. Copying involves the "scp" command ("secure copy"), which
+	allows you to copy a directory from one computer to another.
+
+19) TRUE or FALSE: "The history of changes to the directory or repository is
+copied."
+
+	ANSWER: TRUE only for "cloning"; FALSE for "copying." This is the main reason
+	why people use "Git clone" vs. "scp" because cloning a repository will also
+	copy the commit history of a repository. However, copying ("scp") can be done
+	on ANY directory, whereas "cloning" only works on a Git repository.
+
+20) TRUE or FALSE: "If you make changes to the copied directory or cloned
+repository, the original will not change."
+
+	ANSWER: TRUE for BOTH copying and cloning. In both cases, you're essentially
+	making a copy that you can alter without changing the original.
+
+21) TRUE or FALSE: "The state of every file in the directory or repository
+is copied."
+
+	ANSWER: TRUE for BOTH copying and cloning. In both cases, all the files are
+	copied.
+
+22) TRUE or FALSE: "Checking out (Git checkout) an earlier commit will change
+the state of at least one file."
+
+	ANSWER: SOMETIMES TRUE. Git doesn't allow you to save a commit if no files
+	have been updated. However, consider the following example: Save a commit
+	called "commit 1." Update some files and save a commit called "commit 2."
+	Then, you realize a bug was introduced during commit 2, so you revert back to
+	commit 1 and save AGAIN, calling it "commit 3." At this point, commit 3 is the
+	latest commit, so if you checkout commit 1, none of the files will be changed.
+
+23) TRUE or FALSE: "Checking out (Git checkout) an earlier commit will change
+the state more than one file."
+
+	ANSWER: SOMETIMES TRUE. Since each commit tracks the state of all the files
+	in the repository, it is possible that checking out an earlier commit will
+	change the state of multiple files, or even all the files in the repository.
+	However, it's also possible to save a new commit after changing only one file,
+	so it is possible that only one file will change.
+
+24) TRUE or FALSE: "Checking out (Git checkout) an earlier commit will change
+the state of every file in the repository."
+
+	ANSWER: SOMETIMES TRUE. Please refer to the answer from #23.
+
+25) TRUE or FALSE: "After checking out a commit, the state of all the files
+in the repository will be from the same point in time."
+
+	ANSWER: ALWAYS TRUE. A "commit" is essentially a snapshot of all the files in
+	a repository at the time the commit was made. So, checking out an earlier
+	commit will result in the files being reverted to the state at the time the
+	commit was made.
+
+26) What are the 4 Git commands that you learned in this lesson, what do they
+do, and what arguments do they take?
+
+	A) "Git log": displays the commit history of a repository since it was
+		 originally created. (arguments: none)
+	B) "Git clone": copies an entire Git repository to your computer from another
+		 location. (argument: url)
+	C) "Git diff": displays all of the differences between two selected commits,
+		 printing each line that is present in one commit but not the other.
+		 (arguments: 2 commit IDs)
+	D) "Git checkout": allows for the temporary reverting of a file to a state of
+		 a previous commit, usually for the purpose of locating a bug.
+		 (argument: 1 commit ID)

@@ -1,0 +1,258 @@
+Git and GitHub: Lesson 2 Notes
+
+1) Review of Repositories
+
+  -A "repository" is a collection of files that are saved or "committed"
+  together.
+  -This "commit" is essentially a "snapshot" of each of those files in the Git
+  repository at the time the commit was made.
+  -For instance, the asteroid game repository includes: index.html, index.css,
+  and game.js.
+  -All of these files are visible in the "asteroids" folder.
+  -The "asteroids" folder ALSO contains HIDDEN "meta-data" about the history of
+  the repository since in it was created.
+  -These files are hidden because they are not files that the user needs to
+  interact with.
+  -The hidden files are labeled with file names that begin with a period, so
+  that the computer knows to hide these files from the user.
+
+2) Creating a New Repository Using the "Git init" command
+
+  -Using the mac terminal, you can create a new repository in a new directory or
+  in an already-existing directory.
+  -First, change to the directory of your choosing using the "cd" command.
+  -Next, try using the "ls -a" command to see if any hidden Git files already
+  exist within that directory.
+  -Then, create a new repository by using the command "Git init" in order to
+  initialize an empty Git repository in the directory.
+
+3) How many commits are created immediately upon creating a new repository?
+
+  -Git DOES NOT create any new commits within this newly created repository for
+  you! This is because it would basically take a "snapshot" of EVERYTHING within
+  the directory, which may not be what you want. Also, if Git created the first
+  commit for you, it WOULD NOT include a commit message to explain the details
+  of the commit.
+
+4) Using "Git log" immediately after creating a new repository
+
+  -Using the "Git log" command will produce an error that looks something like
+  this: "fatal: your current branch 'master' does not have any commits yet."
+  -This error is produced because no commits have been produced yet.
+
+5) Using "Git status" instead of "Git log"
+
+  -After creating a new repository, the "Git log" command won't work so we can
+  use the "Git status" command instead.
+  -This command will tell you that you're currently on the "branch master" and
+  that you're viewing the 'initial commit.'
+  -A list of 'untracked files' in the directory will also be displayed.
+
+6) What happens when you initialize a repository? Why do you need to do it?
+
+  -When you initialize a repository, a .Git file is created in the directory
+  that you are currently accessing. You must initialize a repository before you
+  can save any commits.
+
+7) Where is my "working directory" located?
+
+  -This is just another name for your hard drive.
+
+8) What is the "staging area"?
+
+  -This is the area that prepares one or more files to be saved as a commit.
+  -This staging area exists to give a user more control in selecting which files
+  are to be saved in the commit.
+  -If this staging area did not exist, each time we made a commit, every file
+  in a directory would be saved in a commit.
+
+9) Using the "Git add" command
+
+  -You can use the "Git add" command in the mac terminal to add files, one at a
+  time, to the the staging area.
+  -After you've added them to the staging area, using the "Git status" command,
+  you will see that those files will be displayed under the "Changes to be
+  committed" heading.
+
+10) Using the "Git reset" command
+
+  -You can use the "Git reset" command to remove a file that was accidentally
+  placed into "the staging area."
+
+11) How is the staging area different from the working directory and the
+repository? What value do you think it offers?
+
+  -The staging area is different from the working directory and the repository
+  because it is the "middle ground" or the "limbo" between the other two places.
+  -All files from the working directory must pass through the staging area
+  before they can be saved into the repository.
+  -Here is the path that a file must go through in order to be saved/committed:
+  working directory --> staging area --> repository.
+
+12) Using the "Git commit" command
+
+  -You can use the "Git commit" command to save a commit of ALL the files that
+  are in the staging area.
+  -Immediately upon running this command, your preferred text editor should open
+  with a prompt to enter a "commit message."
+  -This "commit message" is the short sentence that describes the changes made
+  in this commit.
+  -You can also use the 'Git commit -m "Commit message here."' command to bypass
+  opening the text editor.
+
+13) Writing the Git commit message
+
+  -This message should be written as if it were a command.
+  -For example, use the word "change" instead of "changes" or "changed" to
+  describe a change made.
+
+14) Using the "Git diff" command WITHOUT any arguments
+
+  -If you use the "Git diff" command without any arguments (the two commit IDs),
+  this will allow you to compare the differences between the WORKING DIRECTORY
+  and the STAGING AREA.
+
+15) Using the "Git diff --staged" command
+
+  -This command allows you to compare the differences between the STAGING AREA
+  and the MOST RECENT COMMIT.
+  -The files that you want to compare to the most recent commit MUST BE in the
+  staging area for this to work.
+
+16) How can you use the staging area to make sure you have one commit per
+logical change?
+
+  -You can use the "Git diff" command (with no arguments) to compare the staging
+  area to the working directory to make sure that there is only one change that
+  has been made. If there are no changes to be made, the terminal will not
+  display anything and will continue to the next line.
+  -You can also use the "Git diff --staged" command, which will compare the
+  staging area to the most recent commit to demonstrate that there is only one
+  change that has been made.
+
+17) What is a "branch" in Git?
+
+  -A "branch" is a label that is placed on a commit. The main branch is also
+  known as the "master."
+  -You can "branch off" the master to try new and experimental things without
+  compromising the function of the most recent working commit.
+
+18) Using the "Git branch" command in Git
+
+  -You can use the "Git branch" command to view all of the available branches in
+  a repository, as well as to see WHICH branch is currently the one that is
+  being checked out.
+  -The branch that has a "*" in front of it is the branch that is currently the
+  branch that is checked out.
+  -If you use the 'Git branch "newBranchName"' command, you will create a new
+  branch within that repository.
+  -This new branch can later be "merged" with the master branch to transfer new
+  features to the master.
+
+19) What are some situations when branches would be helpful in keeping your
+history organized? How would branches help?
+
+  -Branches would be helpful in a situation where you'd like to try something
+  experimental or new, but would like to retain a working version of your
+  program at the same time.
+  -Creating a new branch would also allow you to stay organized. Most often,
+  you'll create a new branch when you switch contexts or projects.
+
+20) Using the "Git log" command to view the visual representation of the commit
+history
+
+  -You can use the "Git log --graph --oneline 'branch1' 'branch2'" command to
+  display a visual representation of the commit history.
+
+21) What is "reachability" and how does it apply to Git?
+
+  -The term "reachability" refers to the ability of "Git log" to display a
+  commit based on it's "parent," which is the commit or branch immediately prior
+  to the commit in question.
+  -When the computer runs "Git log," it essentially begins with the most recent
+  commit of each branch and works backwards to display each parent until there
+  are no parents left (AKA the initial commit).
+
+22) What is the "detached HEAD state"?
+
+  -This error message refers to a commit that cannot be reached through the
+  current list of branches available.
+  -Therefore, this commit is essentially "unreachable" and won't be displayed
+  when using "Git log" because it cannot be traced backwards from the current
+  branches.
+
+23) How do the diagrams help you visualize the branch structure?
+
+  -The diagrams help me visualize the branch structure because they provide me
+  with a map of relationships, showing the reachability of each commit.
+
+24) Why would you want to merge different branches in Git?
+
+  -One would like to merge branches in Git because they may want to include all
+  of the new features from an experimental branch into the master branch (the
+  production quality branch).
+  -When this happens, the label for the old experimental branch is removed and
+  the new commit now has TWO parents.
+
+25) Using the "Git merge 'branch1' 'branch2'" command in Git
+
+  -Use the "Git merge 'branch1' 'branch2'" command in Git to merge two branches.
+  -The text editor will automatically create a commit message for you that
+  denotes the merging of the two branches.
+
+26) Using the "Git show 'commit ID'" command in Git
+
+  -This command is used to display the changes made in a commit compared to it's
+  parent WITHOUT having to know the commit ID of the parent.
+  -This command comes in handy because if you use 'Git log' to display the
+  commit history of a repository that includes merged branches, the commits from
+  those merged branches will be displayed in TIMESTAMP order.
+
+27) Using the "Git branch -d 'branchName'" command in Git
+
+  -This command is used to delete the label/name of a branch that has since been
+  merged with the master.
+  -This can improve reachability by making otherwise-unreachable-commits now
+  reachable because it is using the master branch.
+
+28) What is the result of merging two branches together? Why do we represent
+it in the diagram the way we do?
+
+  -The result of merging two branches together is to combine the features of
+  each branch, into one working branch with many features. We represent it in
+  the diagram the way that we do so that we know where it was merged and we can
+  also see the parents of each commit.
+
+29) Conflict Detection in Git
+
+  -Before merging two branches together, Git is able to let the user know when
+  one or more of the files are in conflict.
+  -When these files conflict, the conflict must be resolved manually before the
+  two branches can be merged.
+
+30) Finding the Conflict
+
+  -Git will throw an error message similar to the following: "CONFLICT (content)
+  : Merge conflict in game.js Automatic merge failed; fix conflicts and then
+  commit the result."
+  -Git will actually put "<<<<<<<" in front of the conflicting code that you
+  changed to make it easy for you to find.
+  -Git will also put "|||||||" in front of the code that is similar between both
+  branches.
+  -Git also puts ">>>>>>>" in front of the master branch's code that was changed
+  so that it will be easier for you to find.
+
+31) Resolving the Conflict
+
+  -You must resolve the conflict by including only the essential parts of both
+  branches that you want included in the final commit.
+  -Remove all of the special characters that Git placed in the file as markers
+  for you.
+
+32) What are the pros and cons of Git’s automatic merging vs. always doing
+merges manually?
+
+  -The pro of Git's automatic merging is that it will check to see if there are
+  any conflicts between both branches first.
+  -The con of this automatic merging is that it doesn't tell you how to resolve
+  the conflict, but only where the conflict exists in the file.
